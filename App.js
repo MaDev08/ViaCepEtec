@@ -2,11 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import { Alert, StyleSheet, View, ScrollView } from 'react-native';
 import { PaperProvider, TextInput, Text, Button, List } from 'react-native-paper';
 import { useState } from 'react';
+import { Picker } from '@react-native-picker/picker';
+
 
 export default function App() {
 
     const [cep, setCep] = useState("");
     const [render, setRender] = useState({});
+    const [selectedValue, setSelectedValue] = useState('');
 
     const BuscaCep = (x) => {
         const cepRegex = /^[0-9]{8}$/;
@@ -82,36 +85,37 @@ export default function App() {
                     theme={{ colors: { primary: '#333', background: '#e0e0e0' } }}
                 />
 
+                <Text style={styles.Text}> </Text>
                 <List.Section title="Estado" >
                     <List.Accordion
-                        title='Selecione o Estado'>
-                        <List.Item title="AC" />
-                        <List.Item title="AL" />
-                        <List.Item title="AP" />
-                        <List.Item title="AM" />
-                        <List.Item title="BA" />
-                        <List.Item title="CE" />
-                        <List.Item title="DF" />
-                        <List.Item title="ES" />
-                        <List.Item title="GO" />
-                        <List.Item title="MA" />
-                        <List.Item title="MS" />
-                        <List.Item title="MT" />
-                        <List.Item title="MG" />
-                        <List.Item title="PA" />
-                        <List.Item title="PB" />
-                        <List.Item title="PR" />
-                        <List.Item title="PE" />
-                        <List.Item title="PI" />
-                        <List.Item title="RJ" />
-                        <List.Item title="RN" />
-                        <List.Item title="RS" />
-                        <List.Item title="RO" />
-                        <List.Item title="RR" />
-                        <List.Item title="SC" />
-                        <List.Item title="SP" />
-                        <List.Item title="SE" />
-                        <List.Item title="TO" />
+                        title='Selecione o Estado' onPress={()=> console.log('')}>
+                        <List.Item title="AC" onPress={()=> console.log('')}/>
+                        <List.Item title="AL" onPress={()=> console.log('')}/>
+                        <List.Item title="AP" onPress={()=> console.log('')}/>
+                        <List.Item title="AM" onPress={()=> console.log('')}/>
+                        <List.Item title="BA" onPress={()=> console.log('')}/>
+                        <List.Item title="CE" onPress={()=> console.log('')}/>
+                        <List.Item title="DF" onPress={()=> console.log('')}/>
+                        <List.Item title="ES" onPress={()=> console.log('')}/>
+                        <List.Item title="GO" onPress={()=> console.log('')}/>
+                        <List.Item title="MA" onPress={()=> console.log('')}/>
+                        <List.Item title="MS" onPress={()=> console.log('')}/>
+                        <List.Item title="MT" onPress={()=> console.log('')}/>
+                        <List.Item title="MG" onPress={()=> console.log('')}/>
+                        <List.Item title="PA" onPress={()=> console.log('')}/>
+                        <List.Item title="PB" onPress={()=> console.log('')}/>
+                        <List.Item title="PR" onPress={()=> console.log('')}/>
+                        <List.Item title="PE" onPress={()=> console.log('')}/>
+                        <List.Item title="PI" onPress={()=> console.log('')}/>
+                        <List.Item title="RJ" onPress={()=> console.log('')}/>
+                        <List.Item title="RN" onPress={()=> console.log('')}/>
+                        <List.Item title="RS" onPress={()=> console.log('')}/>
+                        <List.Item title="RO" onPress={()=> console.log('')}/>
+                        <List.Item title="RR" onPress={()=> console.log('')}/>
+                        <List.Item title="SC" onPress={()=> console.log('')}/>
+                        <List.Item title="SP" onPress={()=> console.log('')}/>
+                        <List.Item title="SE" onPress={()=> console.log('')}/>
+                        <List.Item title="TO" onPress={()=> console.log('')}/>
                     </List.Accordion>
                 </List.Section>
 
