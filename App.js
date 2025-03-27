@@ -9,6 +9,8 @@ export default function App() {
     const [render, setRender] = useState({});
     const [selectedValue, setSelectedValue] = useState("");
     const [dados, setDados] = useState({});
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
 
     const BuscaCep = (x) => {
         const cepRegex = /^[0-9]{8}$/;
@@ -23,8 +25,7 @@ export default function App() {
         const url = `https://viacep.com.br/ws/${x}/json/`;
 
         fetch(url)
-            .then((resp) => { return resp.json() }
-            )
+            .then((resp) => resp.json())
             .then((dados) => {
                 console.log(dados);
                 setDados(dados);
@@ -35,11 +36,9 @@ export default function App() {
                 });
                 setSelectedValue(dados.uf);
             })
-
-            .catch(
-                (X) => {
-                    console.log(X);
-                });
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     return (
@@ -47,6 +46,23 @@ export default function App() {
             <View style={styles.container}>
                 <Text style={styles.title}>Via Cep</Text>
 
+                <TextInput
+                    label={"Nome"}
+                    value={nome}
+                    mode="outlined"
+                    onChangeText={setNome}
+                    style={styles.input}
+                    theme={{ colors: { primary: "#333", background: "#e0e0e0" } }}
+                />
+                <TextInput
+                    label={"Email"}
+                    value={email}
+                    mode="outlined"
+                    keyboardType="email-address"
+                    onChangeText={setEmail}
+                    style={styles.input}
+                    theme={{ colors: { primary: "#333", background: "#e0e0e0" } }}
+                />
                 <TextInput
                     label={"CEP:"}
                     mode="outlined"
@@ -71,7 +87,7 @@ export default function App() {
                     label={"Endereço"}
                     value={render.logradouro || ""}
                     mode="outlined"
-                    disabled
+                    editable={false}
                     style={styles.input}
                     theme={{ colors: { primary: "#333", background: "#e0e0e0" } }}
                 />
@@ -79,7 +95,7 @@ export default function App() {
                     label={"Bairro"}
                     value={render.bairro || ""}
                     mode="outlined"
-                    disabled
+                    editable={false}
                     style={styles.input}
                     theme={{ colors: { primary: "#333", background: "#e0e0e0" } }}
                 />
@@ -87,7 +103,7 @@ export default function App() {
                     label={"Cidade"}
                     value={render.localidade || ""}
                     mode="outlined"
-                    disabled
+                    editable={false}
                     style={styles.input}
                     theme={{ colors: { primary: "#333", background: "#e0e0e0" } }}
                 />
