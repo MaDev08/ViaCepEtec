@@ -24,19 +24,22 @@ export default function App() {
 
         fetch(url)
             .then((resp) => { return resp.json() }
-        )
-            .then(
-                (dados) => {
-                   console.log(dados);
-                   setDados(dados);
-                   setSelectedValue(dados.uf);
-                   
-                } 
             )
+            .then((dados) => {
+                console.log(dados);
+                setDados(dados);
+                setRender({
+                    logradouro: dados.logradouro,
+                    bairro: dados.bairro,
+                    localidade: dados.localidade,
+                });
+                setSelectedValue(dados.uf);
+            })
+
             .catch(
                 (X) => {
-                console.log(X);
-            });
+                    console.log(X);
+                });
     };
 
     return (
