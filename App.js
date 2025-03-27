@@ -143,7 +143,7 @@ export default function App() {
                         ))}
                     </Picker>
 
-                    <Button icon="check" mode="contained" style={styles.button}>
+                    <Button icon="check" mode="contained" onPress={()=> console.log("")} style={styles.button}>
                         Finalizar Cadastro
                     </Button>
                 </View>
